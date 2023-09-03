@@ -27,7 +27,10 @@
 .a button{
  float: right;
  padding-right: 40px;
- color: #00aeff;
+ color: white;
+ text-align: center;
+ background-color:#00aeff ;
+ border-radius: 10px;
 }.left-sidebar{
     width: 25%;
     height: 400px;
