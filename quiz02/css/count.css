@@ -1,0 +1,28 @@
+div{
+    counter-reset: hi;
+}div h1::before{
+    counter-increment: hi;
+    content: counter(hi) ".";
+}h1{
+    counter-reset: tey;
+}h2::before{
+    counter-increment: tey ;
+    content:counter(hi) "." counter(tey) ".";
+}h5::first-letter{
+    color: red;
+}h3::first-line{
+    color: red;
+}h4::before{
+ content:'Hey>';
+}h4::after{
+    content: '<Hi';
+}.opacity{
+    display: flex;
+} img{
+    width: 100px;
+    height: 90px;
+    margin: 3px;
+    opacity: 0.5;
+}img:hover{
+    opacity: 1;
+}

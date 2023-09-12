@@ -1,0 +1,57 @@
+
+.box{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}.black{
+    text-align: left;
+    background-color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+}.blue{
+    text-align: center;
+    background-image: url("../images/building-1.jpg");
+    
+}.red{
+    text-align: right;
+    background-color: rgb(41, 172, 128);
+}.white{
+    text-align: justify;
+    background-color: chartreuse;
+}.del{
+    text-decoration: line-through;
+    text-transform: uppercase;
+    color: red;
+    
+}.font{
+   
+    font-family: 'Roboto', sans-serif;
+}.link a:active{
+    color:rgb(223, 16, 16);
+    border: 1px solid;
+
+}a{
+    text-decoration: none;
+}.list ol>li{
+    background-color: darkgrey;
+    list-style-position: outside;
+    /* list-style: square; */
+    width: 100px;
+    margin: 4px;
+}.list1 ul>li{
+    background-color: darkgrey;
+    list-style-position: inside;
+    /* list-style: circle; */
+    width: 100px;
+    margin: 4px;
+}.list2 ol>li{
+    background-color: darkgrey;
+    list-style: square;
+    width: 100px;
+    margin: 4px;
+}.list3 ul>li{
+    background-color: darkgrey;
+    list-style: circle;
+    width: 100px;
+    margin: 4px;
+}
+
