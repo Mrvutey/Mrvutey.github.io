@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><span style="color: red;">1.</span>These are If Else and Switch Case in Js</h3>
+
+    <script>
+
+        var day = new Date();
+        // console.log(day.getDay());
+        if(day.getDay() == 0){
+            document.write(day);
+            document.write("<br>");
+        }
+        else if(day.getDay() == 1){
+            document.write();
+        }
+        else {
+            document.write('No more day');
+            document.write("<br>");
+        }
+
+
+         var arr =['Sunday','Monday','Saturday','Tuesday','Friday','Thursday','Wednesday'];
+        if (arr[0]=='Sunday'){
+            document.write(arr[0]);
+            document.write("<br>");
+        } if (arr[1]=='Monday'){
+            document.write(arr[1]);
+            document.write("<br>");
+        } if (arr[2]=='Saturday'){
+            document.write(arr[3]);
+            document.write("<br>");
+        } if (arr[3]=='Tuesday'){
+            document.write(arr[6]);
+            document.write("<br>");
+        } if (arr[4]=='Friday'){
+            document.write(arr[5]);
+            document.write("<br>");
+        }if (arr[5]=='Thursday'){
+            document.write(arr[4]);
+            document.write("<br>");
+        }if (arr[6]=='Wednesday'){
+            document.write(arr[2]);
+            document.write("<br>");
+         }else{
+            document.write('Sorry! theres no more day');
+        }
+    </script>
+        <!-- <h3><span style="color: red;">1.</span>This is switch case</h3> -->
+
+    <script>
+        var num = 1;
+
+// check num 
+
+switch(num){
+    case 1:
+        alert("case 1 alert!");
+        break;
+    case 2:
+        alert("case 2 alert!");
+        break ;
+    case 3:
+        alert("case 3 alert !");
+        break;
+    case 4:
+        alert("case 4 alert !");
+        break;
+    default:
+        alert("default case alert !");
+}
+    </script>
+    <script>
+        var age =30;
+         var t = (age >= 30) ? 'I am single': 'I am marrige.'; //short form of if else condition 
+        // console.log(t);
+        document.write(t);
+    </script>
+    <script src="../js/JavaScript_If_Else_and_Switch_Statements.js"></script>
+    
+</body>
+</html>

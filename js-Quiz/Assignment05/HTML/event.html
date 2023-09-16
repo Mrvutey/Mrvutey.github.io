@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><span style="color: red;">1.</span>These are Js events and Js String(slice,split,indexof,replace,concat,) </h3>
+
+    <form onsubmit="alert('Your message have been submit')">
+        <input type="submit" value="submit">
+    </form>
+    
+<button onclick="alert('Hello Dear!')">Click Me !</button>  
+    <p oncontextmenu="alert('This is oncontextmenu')">Right Click!</p>
+
+    <p onblur="alert('boom')">Blur</p>
+<button onkeydown="alert('me')">Keydown</button>
+    <button onkeyup="alert('me')">Keyup</button>
+    <input type="text" onkeypress="alert('leave me')">
+    <input type="text" onfocus="alert('leave ')">
+    <select onchange="alert(111)">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+    <script>
+        document.write('<br>');
+        document.write('<br>');
+        var arrt = ["red " , "green" , "yellow"];
+        var newarr = ['Test' , 'Number'];
+        var t = arrt.join();
+        // document.write(t);
+
+        //concate
+       
+       var att = arrt.concat(newarr);
+       var greet = "Vutey" +" "+"Pat";
+        var b = "this is an Apple";
+        var result =b.slice(5,10);
+        var c = b.replace('Apple','Table');
+        var str='HTML,CSS,JS,PHP';
+        var rs =str.split('T');
+        var x = 'Hello \'Data\'';
+        var path = 'C:foler\\folder2\\';
+       
+        document.write(att);
+        document.write('<br>');
+        document.write('<br>');
+        document.write(rs);
+        document.write('<br>');
+        document.write('<br>');
+        document.write(greet); 
+        document.write('<br>');
+        document.write('<br>');
+        document.write(result); 
+        document.write('<br>');
+        document.write('<br>');
+        document.write(c); 
+        document.write('<br>');
+        document.write('<br>');
+        document.write(path);
+        document.write('<br>');
+        document.write('<br>');
+        document.write(x);
+        document.write('<br>');
+       
+
+    </script>
+    <p>Find "welcome" </p>
+    <script>
+         let text = "Hello world, welcome to the universe.";
+        let result1 = text.indexOf("welcome");
+        document.write(text);
+        document.write('<br>');
+        document.write(result1);
+    </script>
+    <p>Find "e":</p>
+
+    <script>
+    let text1 = "Hello world, welcome to the universe.";
+    let result2 = text1.indexOf("e");
+    document.write(text1);
+    document.write('<br>');
+    document.write(result2);
+    
+    </script>
+    <p>Hello world!</p>
+    <script>
+        let text2 = "Hello world!"; 
+    let result3 = text2.slice(-1);
+    document.write(text2);
+    document.write('<br>');
+    document.write(result3)
+    </script>
+    <script src="../js/JavaScript_Events.js"></script>
+</body>
+</html>

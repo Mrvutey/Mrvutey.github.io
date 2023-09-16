@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><span style="color: red;">1.</span>These are types of array in jss</h3>
+
+    <p id="demo"></p>
+    <script>
+        var cars = ["Toyota" , "Luxus" , "BMW"];
+        // change from Toyota to Tesla 
+        cars[0] = "Tesla";
+
+        document.getElementById("demo").innerHTML = cars;  // cars[0] = Toyota , cars[1]= Luxus, cars[2]= BMW
+        var arr = ["apple" , "orage", "love"];
+        document.write(arr.length);
+        document.write('<br>');
+        var arrt = ["red " , "green" , "yellow"];
+
+        for (var i =0 ; i< arrt.length; i++){
+
+            document.write(arrt[i] + '<br>');
+   
+        }
+
+        var aarr = arrt.push("Blue"); // add element to last
+        var arr = arrt.unshift("Gray"); // add element to top
+        document.write('<br>');
+        document.write(arrt);
+
+    </script>
+    <script src="../js/JavaScript_Arrays.js"></script>
+</body> 
+</html>

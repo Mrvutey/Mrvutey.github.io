@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><span style="color: red;">1.</span>These are Number,String,Boolean,Array,object,function,Typeof</h3>
+
+    <script>
+        // Numbers:
+let length = 16;
+let weight = 7.5;
+
+// Strings:
+let color = "Yellow";
+let lastName = "Johnson";
+
+// Booleans
+let x = true;
+let y = false;
+
+// Object:
+const person = {firstName:"John", lastName:"Doe"};
+
+// Array object:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// Date object:
+const date = new Date();
+
+//Fucntion:
+function a(){
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    console.log(width,height);
+}
+window.onresize = a;
+document.write(length,weight);
+document.write('<br>');
+document.write(color,lastName);
+document.write('<br>');
+document.write(x);
+document.write('<br>');
+document.write(cars);
+document.write('<br>');
+document.write(typeof(cars));
+document.write('<br>');
+document.write(person.lastName,person.firstName);
+document.write('<br>');
+document.write(date);
+
+    </script>
+
+    <script src="../js/JavaScript_Data_types.js"></script>
+</body>
+</html>
