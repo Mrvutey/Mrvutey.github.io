@@ -14,8 +14,11 @@
         // change from Toyota to Tesla 
         cars[0] = "Tesla";
 
-        document.getElementById("demo").innerHTML = cars;  // cars[0] = Toyota , cars[1]= Luxus, cars[2]= BMW
-        var arr = ["apple" , "orage", "love"];
+        document.getElementById("demo").innerHTML = cars;  
+    </script>
+    <p>Array.length and Loop array</p>
+      <script>
+          var arr = ["apple" , "orange", "love"];
         document.write(arr.length);
         document.write('<br>');
         var arrt = ["red " , "green" , "yellow"];
@@ -26,11 +29,23 @@
    
         }
 
+      </script>
+      <p>Array push unshift sort </p>
+      <script>
         var aarr = arrt.push("Blue"); // add element to last
         var arr = arrt.unshift("Gray"); // add element to top
         document.write('<br>');
         document.write(arrt);
-
+        document.write('<br>');
+        var arr1 = ["apple" , "orange", "banana"];
+        arr1.sort();
+        document.write(arr1);
+        var arr2 = ["apple" , "orange", "banana"];
+        arr2.sort(function(a,b){
+            return b.localeCompare(a)
+        });
+        document.write('<br>');
+        document.write(arr2);
     </script>
     <script src="../js/JavaScript_Arrays.js"></script>
 </body> 
