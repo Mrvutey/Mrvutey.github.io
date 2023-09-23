@@ -1,0 +1,64 @@
+.container-fluid{
+    width: 100%;
+    height: 100vh;
+    padding: 0px;
+    display: flex;
+}
+.menu{
+    display: flex;
+    height: 40px;
+}
+.col-2{
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    padding-top: 7px;
+    border-bottom: 1px solid white;
+}
+.cus-1{
+    background-color: white;
+    color: gainsboro;
+    text-align: right;
+    padding-top: 0px;
+}
+button{
+   border-top-width: 0px; 
+   background: white;
+}
+.left-side{
+    display: block;
+    background-color: blueviolet;
+    width: 256px;
+}
+p{
+    
+    height: 29px;
+    text-align: left;
+    padding-left: 20px;
+    
+}
+img{
+    width: 18px;
+    height: 18px;
+}
+.tb{
+    border: 1px solid whitesmoke;
+    width: 1236px;
+    height: 50px;
+    border-top: none;
+}
+.tr{
+    color: darkgray;
+}
+tr{
+    border: 1px solid rgb(224, 223, 219);
+    height: 34px;
+    border-left: none;
+    border-right: none;
+}
+tr:hover:nth-child(2n){
+    background: darkgray;
+}
+.contain-side{
+    margin-left: 34px;
+}
