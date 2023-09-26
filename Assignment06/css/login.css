@@ -35,4 +35,6 @@
     .btn2{
         background-color: rgb(201, 67, 234);
     }
-    
+    body{
+        height: 100vh;
+    }
