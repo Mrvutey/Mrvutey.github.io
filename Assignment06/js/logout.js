@@ -6,7 +6,7 @@ var loginObj = {
         if('patvutey@gmail.com' == txtEmail && 'Tey123' == txtPassword){
             document.getElementById('msg').remove();
             // localStorage.setItem("email","txtUsername");
-             window.location.href = "login.html";
+             window.location.href = "index.html";
         } else {
             alert ('Incorrect username or password');
         }
