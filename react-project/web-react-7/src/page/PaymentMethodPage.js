@@ -1,0 +1,234 @@
+import {useEffect, useState,useRef} from "react";
+import { request } from "../config/request";
+import {Table,Button, Space, Modal, Input, Form, Select, message, Tag, DatePicker} from "antd"
+import { formartDateClient } from "../config/helper";
+import MainPage from "../component/page/MainPage";
+import dayjs from "dayjs";
+
+const OrderStatusPage = () => {
+    const [list,setList] = useState([]);
+    const [loading,setLoading] = useState(false)
+    const [open,setOpen] = useState(false);
+    const [formCat] = Form.useForm();
+
+    useEffect(()=>{
+        formCat.setFieldsValue({
+            Status: "1"
+        })
+        getList();
+    },[])
+
+    const filterRef = useRef({
+        txt_search : null,
+        status : null
+    })
+
+    const getList = async () => {
+        setLoading(true)
+        var param = {
+            txt_search : filterRef.current.txt_search,
+            status : filterRef.current.status,
+        }
+        const res = await request("order_payment_method/getlist","get",param);
+        setLoading(false)
+        if(res){
+            setList(res.list)
+        }
+    }
+    const onClickBtnEdit = (item) => {
+        formCat.setFieldsValue({
+            Id : item.Id, 
+            Name : item.Name,
+            Code : item.Code,
+            Status : item.Status+""
+        })
+        setOpen(true)
+
+    }
+    const onClickBtnDelete = async (item) => {
+        Modal.confirm({
+            title: "Delete",
+            content: "Are you sure you want to delete ?",
+            okText: "Yes",
+            cancelText: "No",
+            okType: "danger",
+            centered: true,
+            onOk: async () => {
+                var data = {
+                    Id : item.Id
+                }
+                const res = await request("order_payment_method/delete","delete",data);
+                if(res){
+                    message.success(res.message)
+                    getList();
+                }
+            }
+        })
+       
+    }
+    const onFinish = async (item) => {
+        var Id = formCat.getFieldValue("Id")
+        var data = {
+            "Id" : Id,
+            "Name" : item.Name,
+            "Code" : item.Code,
+            "Status" : item.Status,
+            "UserId" : 1,
+        }
+        var method = (Id == null ? "post" : "put")
+        const url = (Id == null ? "order_payment_method/create" : "order_payment_method/update")
+        const res = await request(url,method,data);
+        if(res){
+            message.success(res.message)
+            getList();
+            onCloseModal();
+        }
+    }
+    const onTextSearch = (value) => {
+
+    }
+    const onChangeSearch = (e) => {
+        filterRef.current.txt_search = (e.target.value)
+        getList();
+    }
+    const onChangeStatus = (value) => {
+        filterRef.current.status = value
+        getList();
+    }
+    const onCloseModal = () => {
+        formCat.resetFields();
+        formCat.setFieldsValue({
+            Status: "1"
+        })
+        setOpen(false)
+    }
+
+    return (
+        <MainPage loading={loading}>
+            <div style={{display:'flex',justifyContent:'space-between',paddingBottom:10}}>
+                <Space>
+                    <div className="txt_title">Payement Method</div>
+                    <Input.Search allowClear onChange={onChangeSearch} placeholder="Name or Code" onSearch={onTextSearch} />
+                    <Select onChange={onChangeStatus} placeholder="Status" allowClear style={{width:120}} >
+                        <Select.Option value={"1"}>Active</Select.Option>
+                        <Select.Option value={"0"}>InActive</Select.Option>
+                    </Select>
+                    <DatePicker 
+                        defaultValue={dayjs()}
+                        format={"DD/MM/YYYY"}
+                    />
+                    <DatePicker />
+                </Space>
+                
+                <Button onClick={()=>{setOpen(true)}} type="primary">New</Button>
+            </div>
+            <Table 
+                dataSource={list}
+                pagination={{
+                    pageSize:5,
+                }}
+                columns={[
+                    {
+                        key:"No",
+                        title:"No",
+                        dataIndex:"Name",
+                        render:(value,item,index) => (index+1)
+                    },
+                    {
+                        key:"Name",
+                        title:"Name",
+                        dataIndex:"Name",
+                    },
+                    {
+                        key:"Code",
+                        title:"Code",
+                        dataIndex:"Code",
+                    },
+                    {
+                        key:"Status",
+                        title:"Status",
+                        dataIndex:"Status",
+                        render:(value)=>( value==1 ? <Tag color="green" >Actived</Tag> : <Tag color="red">InActived</Tag>)
+                    },
+                    {
+                        key:"CreateAt",
+                        title:"CreateAt",
+                        dataIndex:"CreateAt",
+                        render : (value) => formartDateClient(value)
+                    },
+                    {
+                        key:"Action",
+                        title:"Action",
+                        dataIndex:"Status",
+                        align:'right',
+                        width:120,
+                        render : (value,item,index) => (
+                            <Space>
+                                <Button onClick={()=>onClickBtnEdit(item)} type="primary">Edit</Button>
+                                <Button onClick={()=>onClickBtnDelete(item)} type="primary" danger>Delete</Button>
+                            </Space>
+                        )
+                    }
+                ]}
+            />
+            <Modal 
+                title={(formCat.getFieldValue("Id") == null) ? "New Catetory" : "Update Category"}
+                open={open} 
+                onCancel={onCloseModal}
+                footer={null}
+            >
+                <Form
+                    form={formCat}
+                    layout="vertical"
+                    onFinish={onFinish}
+                >
+                    <Form.Item
+                        label="Name"
+                        name={"Name"}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input category name!',
+                            },
+                        ]}
+                    >
+                        <Input placeholder="Category name"/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Code"
+                        name={"Code"}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input category name!',
+                            },
+                        ]}
+                    >
+                        <Input placeholder="Code"/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Status"
+                        name={"Status"}
+                    >
+                       <Select defaultValue={"1"} >
+                            <Select.Option value="1">Actived</Select.Option>
+                            <Select.Option value="0">InActived</Select.Option>
+                       </Select>
+                    </Form.Item>
+                    <Form.Item style={{textAlign:"right"}}>
+                        <Space>
+                            <Button onClick={onCloseModal}>Cancel</Button>
+                            <Button type="primary" htmlType="submit">{formCat.getFieldValue("Id") == null ? "Save" : "Update"}</Button>
+                        </Space>
+                    </Form.Item>
+                   
+                </Form>
+
+            </Modal>
+        </MainPage>
+    )
+}
+
+export default  OrderStatusPage
